@@ -1,0 +1,17 @@
+# Python environment
+venv/
+.env
+__pycache__/
+*.py[cod]
+
+# Large Container Images (Do not upload these!)
+*.tar
+
+# MLflow local runs (usually too large/noisy for git)
+mlruns/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS specific files
+.DS_Store

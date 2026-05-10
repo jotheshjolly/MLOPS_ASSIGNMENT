@@ -1,0 +1,10 @@
+fastapi
+joblib
+matplotlib
+mlflow
+mlflow_skinny
+numpy
+pandas
+scikit_learn
+seaborn
+uvicorn

@@ -1,0 +1,21 @@
+name: MLOps CI Pipeline
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with: {python-version: 3.9}
+      - name: Install dependencies
+        run: pip install flake8 pytest -r requirements.txt
+      - name: Lint
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      - name: Train Model
+        run: |
+          python src/train.py  # This creates the 'models/best_model.pkl' file
+      - name: Test with pytest
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/src
+          pytest
